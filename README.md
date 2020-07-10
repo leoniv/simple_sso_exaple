@@ -5,7 +5,13 @@
 - [http4s](https://http4s.org/v0.21/)
 - [http4s-pac4j](https://github.com/pac4j/http4s-pac4j) версия из
 [PR](https://github.com/pac4j/http4s-pac4j/pull/3)
-- [tapir](https://tapir.softwaremill.com/en/latest/)
+
+Устновите локально снимок библиотеки http4s-pac4j:
+
+    $git clone https://github.com/leoniv/http4s-pac4j.git
+    $cd http4s-pac4j
+    $git checkout v1.0.0-leoniv-SNAPSHOT
+    $sbt publishLocal
 
 ## Общее описание
 
@@ -28,10 +34,10 @@ localhost но будут разные порты, что с точки зрен
 
 ## Перечислим персонажи:
 
-- PS - public site - http://localhost:8080
+- PS - public site - http://localhost:8083
 - SA - service A - http://localhost:8081
 - SB - service B - http://localhost:8082
-- SSO - SSO - http://localhost:8083
+- SSO - SSO - http://localhost:8080
 
 ## Эндпоинты
 
@@ -50,10 +56,14 @@ ID пользователя. Точку входа браузера index.html �
 
 #### SSO
 
-- /login - страница выбора способа входа
+- /logout - эндпоинт выхода из учетной записи
 - /callback - точка возврата для т.н [iderect client](http://www.pac4j.org/docs/clients.html)
 или в терминах OpenID/OAuth это т.н. [Redirection Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2)
-- /user_id - возвращает ID пользователя идентифицированному агенту пользователя
-ID пользователя является защищаемым ресурсом в терминах OpenID это т.н.
+- /profile/id - возвращает ID пользователя идентифицированному агенту пользователя
+ID пользователя
+- /profile - страница отображающая профиль пользователя идетифицированному
+агенту пользователя
+
+Путь `/profile/*` является защищаемым ресурсом в терминах OpenID это т.н.
 [UserInfo Endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
 
