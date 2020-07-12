@@ -63,6 +63,18 @@ ID пользователя
 Путь `/profile/*` является защищаемым ресурсом в терминах OpenID это т.н.
 [UserInfo Endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
 
+Для входа в учетную запись и возврата после идентификации на адрес `SomeUrl`
+необходимо направить браузер на url SSO:
+
+`/profile?returnTo=SomeUrl`
+
+Для выхода на url SSO:
+
+`/logout`
+
+При этом SSO удалит сессию и вернет `204 - No content`. Используется т.н.
+локальный выход см [DefaultLogoutLogic](https://github.com/pac4j/pac4j/blob/458babbc0877521906194d6b31a4761426f5ee4b/pac4j-core/src/main/java/org/pac4j/core/engine/DefaultLogoutLogic.java#L37)
+
 ## Запуск
 
     $sbt
