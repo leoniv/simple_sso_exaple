@@ -58,13 +58,13 @@ object Main extends IOApp {
     )
   private def serviceA =
     mkServer(
-      service.mkHttpApp(serviceAConfig, publicConfig),
+      service.mkHttpApp(serviceAConfig, publicConfig, blocker),
       serviceAConfig.host,
       serviceAConfig.port
     )
   private def serviceB =
     mkServer(
-      service.mkHttpApp(serviceBConfig, publicConfig),
+      service.mkHttpApp(serviceBConfig, publicConfig, blocker),
       serviceBConfig.host,
       serviceBConfig.port
     )
