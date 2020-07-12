@@ -3,8 +3,7 @@
 Пример реализации простого SSO с использованием
 
 - [http4s](https://http4s.org/v0.21/)
-- [http4s-pac4j](https://github.com/pac4j/http4s-pac4j) версия из
-[PR](https://github.com/pac4j/http4s-pac4j/pull/3)
+- [http4s-pac4j](https://github.com/pac4j/http4s-pac4j)
 
 ## Общее описание
 
