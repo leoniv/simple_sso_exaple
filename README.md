@@ -68,12 +68,19 @@ ID пользователя
 
 `/profile?returnTo=SomeUrl`
 
-Для выхода на url SSO:
+При запросах на защищенный ресурс `/profile/*` SSO возвращает 302 и направляет браузер
+на страницу выбора способа входа. При AJAX запросах SSO возвращает 401.
+Для того, что бы SSO мог распознать AJAX клиента, запрос должен содержать заголовок
+`X-Requested-With: XMLHttpRequest` или `is_ajax_request: true`
+см. [AJAX requests](http://www.pac4j.org/3.9.x/docs/clients.html#5-ajax-requests)
+
+Для выхода из ученой записи выполнить запрос на url SSO:
 
 `/logout`
 
 При этом SSO удалит сессию и вернет `204 - No content`. Используется т.н.
 локальный выход см [DefaultLogoutLogic](https://github.com/pac4j/pac4j/blob/458babbc0877521906194d6b31a4761426f5ee4b/pac4j-core/src/main/java/org/pac4j/core/engine/DefaultLogoutLogic.java#L37)
+
 
 ## Запуск
 
